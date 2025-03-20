@@ -3,13 +3,12 @@ import { makePokeURLs, getData } from './PokeManager'
 
 const maxId = 386;
 
-let data = await getData(makePokeURLs(maxId))
-
 function capitalizeFirstLetter(val) {
   return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
 
 const init = async () => {
+  // Obtain the URLs dinamically instead
   const data = await getData(makePokeURLs(maxId));
 
   const header = `<h1 class="header">Alice's PokéDex</h1>`;
@@ -31,6 +30,7 @@ const init = async () => {
 
 init();
 
+// DO THIS WITH CSS
 const toggleImages = (data) => {
   setInterval(() => {
     data.forEach((pokemon, index) => {
