@@ -16,7 +16,7 @@ const init = async () => {
 
   const htmlContent = data.map(pokemon => `
     <div class='pokemon'>
-      <p class='id'>${pokemon.id}</p>
+      <p class='id'>#${pokemon.id}</p>
       <p class='name'>${capitalizeFirstLetter(pokemon.name)}</p>
       <p>Height: ${pokemon.height}</p>
       <p>Weight: ${pokemon.weight}</p>
