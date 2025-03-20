@@ -19,6 +19,8 @@ export async function getData(urls) {
       }
       return await response.json();
     });
+
+
     const return_array = await Promise.all(promises);
     return return_array;
   } catch (error) {
