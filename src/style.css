@@ -47,6 +47,7 @@ body {
     color: #ffe6a7;
     background: #432818;
     margin-bottom: 5%;
+    padding-bottom: 2px;
 }
 
 .pokemon .id {
@@ -54,4 +55,5 @@ body {
     color: #ffe6a7;
     background: #432818;
     margin-top: 10%;
+    padding-top: 2px;
 }
