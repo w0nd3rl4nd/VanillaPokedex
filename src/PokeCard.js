@@ -7,7 +7,7 @@ export class PokeCard {
         this.name = this.capitalizeName(pokemonData.name);
         this.height = pokemonData.height;
         this.weight = pokemonData.weight;
-        this.sprite_front = pokemonData.sprites?.front_default || './public/fallback.svg';
+        this.sprite_front = pokemonData.sprites?.front_default || './fallback.svg';
         this.sprite_shiny = pokemonData.sprites?.front_shiny || this.sprite_front;
     }
 
