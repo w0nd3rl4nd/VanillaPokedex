@@ -1,7 +1,10 @@
+// Import the PokeCard class
 import {PokeCard} from './PokeCard.js'
 
+// Define the URL where we will obtain pokemons from
 let freecodecamp_api = 'https://pokeapi-proxy.freecodecamp.rocks/api/pokemon'
 
+// Function exclusive to obtain the pokemon URLs at the freecodecamp apis (because this api returns a list of URL, each per pokemon)
 async function ObtainPokeURLs() {
   try {
     const response = await fetch(freecodecamp_api);
