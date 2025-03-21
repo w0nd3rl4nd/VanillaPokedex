@@ -13,8 +13,8 @@ const init = async () => {
     <div class='pokemon'>
       <p class='id'>#${pokemon.id}</p>
       <p class='name'>${pokemon.name}</p> <!-- Changed -->
-      <p>Height: ${pokemon.height}</p>
-      <p>Weight: ${pokemon.weight}</p>
+      <p>Height: ${pokemon.height} m</p>
+      <p>Weight: ${pokemon.weight} kg</p>
       <img class='pokemon-img' src='${pokemon.sprite_front}' alt='${pokemon.name}' />
     </div>
   `).join('');
