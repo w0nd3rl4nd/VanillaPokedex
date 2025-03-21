@@ -1,18 +1,22 @@
-class PokeCard {
+export class PokeCard {
 
-    constructor(id, name, height, weight, sprite_front, sprite_shiny) {
-        this.id = id;
-        this.name = name;
-        this.height = height;
-        this.weight = weight;
-        this.sprite_front = sprite_front;
-        this.sprite_shiny = sprite_shiny;
-        this.name = capitalizeName(this.name);
+    constructor(pokemonData) {
+        this.id = pokemonData.id;
+        this.name = this.capitalizeName(pokemonData.name);
+        this.height = pokemonData.height;
+        this.weight = pokemonData.weight;
+        this.sprite_front = pokemonData.sprites?.front_default || './public/fallback.svg';
+        this.sprite_shiny = pokemonData.sprites?.front_shiny || this.sprite_front;
     }
 
     capitalizeName(val) {
         return String(val).charAt(0).toUpperCase() + String(val).slice(1);
-      }
+    }
 
+    getNextSprite(currentSrc) {
+        return currentSrc.includes(this.sprite_front) 
+          ? this.sprite_shiny 
+          : this.sprite_front;
+      }
 
 }

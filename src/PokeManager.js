@@ -1,17 +1,23 @@
-export function makePokeURLs(maxId) {
-  const base_url = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/"
-  const urls = []
-  for(let i = 1; i <= maxId; i++) {
-    const temp = base_url + i + "/";
-    urls.push(temp);
-  }
+import {PokeCard} from './PokeCard.js'
 
-  return urls
+let freecodecamp_api = 'https://pokeapi-proxy.freecodecamp.rocks/api/pokemon'
+
+export async function ObtainPokeURLs() {
+  try {
+    const response = await fetch(freecodecamp_api);
+    if (!response.ok) throw new Error(`HTTP error status: ${response.status}`);
+    
+    const data = await response.json();
+    return data.results.map(pokemon => pokemon.url);
+  } catch (error) {
+    console.error("Failed to fetch Pokémon list:", error);
+    return [];
+  }
 }
 
-
-export async function getData(urls) {
+export async function getData() {
   try {
+    const urls = await ObtainPokeURLs();
     const promises = urls.map(async (url) => {
       const response = await fetch(url);
       if (!response.ok) {
@@ -22,9 +28,20 @@ export async function getData(urls) {
 
 
     const return_array = await Promise.all(promises);
-    return return_array;
+    return return_array.map(pokemonData => new PokeCard(pokemonData));
   } catch (error) {
     console.error("Error fetching data:", error.message);
     return [];
   }
+}
+
+export function initializeImageToggler(pokemonCards) {
+  return setInterval(() => {
+    pokemonCards.forEach((pokemon, index) => {
+      const imgElement = document.querySelectorAll('.pokemon-img')[index];
+      if (!imgElement) return;
+      
+      imgElement.src = pokemon.getNextSprite(imgElement.src);
+    });
+  }, 2000);
 }

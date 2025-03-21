@@ -31,6 +31,8 @@ body {
     border-color: #432818;
     align-items: center;
     border-radius: 20px;
+    width: 150px;
+    height: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   
@@ -45,6 +47,7 @@ body {
 }
 
 .pokemon p {
+    text-overflow: ellipsis;
     font-size: 0.9em;
     font-weight: bold;
     margin-bottom: 10px;
@@ -53,6 +56,9 @@ body {
 }
 
 .pokemon .name {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0px 5px;
     font-size: 1.1em;
     color: #ffe6a7;
     background: #432818;
