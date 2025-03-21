@@ -2,7 +2,7 @@ import {PokeCard} from './PokeCard.js'
 
 let freecodecamp_api = 'https://pokeapi-proxy.freecodecamp.rocks/api/pokemon'
 
-export async function ObtainPokeURLs() {
+async function ObtainPokeURLs() {
   try {
     const response = await fetch(freecodecamp_api);
     if (!response.ok) throw new Error(`HTTP error status: ${response.status}`);
