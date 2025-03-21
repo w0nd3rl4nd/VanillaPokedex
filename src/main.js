@@ -8,6 +8,10 @@ String.prototype.capitalizeFirstLetter = function() {
 };
 
 const init = async () => {
+
+  // Write a "loading" message while data hasn't been loaded yet
+  document.querySelector('#app').innerHTML = `<h1 class="loading">Loading...</h1>`;
+
   // Obtain the URLs dinamically instead
   const data = await getData(makePokeURLs(maxId));
 
@@ -19,7 +23,7 @@ const init = async () => {
       <p class='name'>${pokemon.name.capitalizeFirstLetter()}</p>
       <p>Height: ${pokemon.height}</p>
       <p>Weight: ${pokemon.weight}</p>
-      <img class='pokemon-img src='${pokemon.sprites.front_default}' alt='${pokemon.name}' />
+      <img class='pokemon-img' src='${pokemon.sprites.front_default}' alt='${pokemon.name}' />
     </div>
   `).join('');
 

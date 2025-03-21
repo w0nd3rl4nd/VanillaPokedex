@@ -13,6 +13,16 @@ body {
     margin-top: 20px;
 }
 
+.loading {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    color: #432818;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+  
+
 .pokemon {
     text-align: center;
     margin-bottom: 20px;
