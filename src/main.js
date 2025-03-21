@@ -3,9 +3,9 @@ import { makePokeURLs, getData } from './PokeManager'
 
 const maxId = 386;
 
-function capitalizeFirstLetter(val) {
-  return String(val).charAt(0).toUpperCase() + String(val).slice(1);
-}
+String.prototype.capitalizeFirstLetter = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
 
 const init = async () => {
   // Obtain the URLs dinamically instead
@@ -16,7 +16,7 @@ const init = async () => {
   const htmlContent = data.map(pokemon => `
     <div class='pokemon'>
       <p class='id'>#${pokemon.id}</p>
-      <p class='name'>${capitalizeFirstLetter(pokemon.name)}</p>
+      <p class='name'>${pokemon.name.capitalizeFirstLetter()}</p>
       <p>Height: ${pokemon.height}</p>
       <p>Weight: ${pokemon.weight}</p>
       <img class='pokemon-img src='${pokemon.sprites.front_default}' alt='${pokemon.name}' />
